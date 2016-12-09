@@ -1,0 +1,4 @@
+---
+- include: install_zabbix_server.yml
+- include: configure_zabbix_server.yml
+- include: service_zabbix_server.yml

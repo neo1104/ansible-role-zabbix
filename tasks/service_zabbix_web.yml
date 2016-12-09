@@ -1,0 +1,5 @@
+---
+- name: start zabbix web
+  service:
+    name: nginx
+    state: restarted

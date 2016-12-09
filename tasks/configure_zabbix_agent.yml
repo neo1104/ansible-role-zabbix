@@ -1,0 +1,7 @@
+---
+- name: configure zabbix agent
+  template:
+    src: zabbix_agentd.conf.j2
+    dest: "{{ zabbix_agent_config_path }}"
+  notify:
+    - restart zabbix agent

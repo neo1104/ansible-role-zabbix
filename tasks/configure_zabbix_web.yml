@@ -1,0 +1,30 @@
+---
+- name: create zabbix web user
+  user:
+    name: "{{ zabbix_web_user }}"
+    shell: /bin/nologin
+    createhome: no
+    state: present
+
+- name: change zabbix web host dir owner
+  file:
+    path: "{{ zabbix_web_path }}"
+    owner: "{{ zabbix_web_user }}"
+    group: "{{ zabbix_web_group }}"
+    recurse: yes
+    state: directory
+
+- name: change zabbix web configure dir owner
+  file:
+    path: "{{ zabbix_web_config_path }}"
+    owner: "{{ zabbix_web_user }}"
+    group: "{{ zabbix_web_group }}"
+    recurse: yes
+    state: directory
+
+- name: configure zabbix nginx web server
+  template:
+    src: zabbix_nginx.conf.j2
+    dest: "{{ zabbix_web_nginx_conf_path }}"
+  notify:
+    - restart zabbix nginx server

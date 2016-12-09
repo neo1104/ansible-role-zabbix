@@ -1,0 +1,6 @@
+---
+- name: install zabbix web server
+  yum:
+    name: zabbix-web-mysql
+    state: present
+    enablerepo: zabbix

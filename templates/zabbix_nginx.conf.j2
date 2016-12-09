@@ -1,0 +1,22 @@
+server {
+  server_name {{ zabbix_web_host }};
+  listen {{ zabbix_web_port }};
+  charset utf-8;
+  root {{ zabbix_web_path }};
+  index index.php index.html;
+  if (!-e $request_filename) {
+    rewrite ^/.* /index.php last;
+  }
+  location ~ \.php$ {
+    fastcgi_pass {{ zabbix_php_addr }};
+    fastcgi_index index.php;
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    include fastcgi_params;
+    # 以下解决用php输出js,css等文件导致出错的问题
+    gzip on;
+    gzip_min_length 1100;
+    gzip_buffers 4 8k;
+    gzip_types text/plain application/x-javascript text/css image;
+    proxy_buffering off;
+  }
+}

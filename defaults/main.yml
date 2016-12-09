@@ -1,0 +1,31 @@
+---
+# defaults file for roles/zabbix
+zabbix_server_config_path: "/etc/zabbix/zabbix_server.conf"
+zabbix_agent_config_path: "/etc/zabbix/zabbix_agentd.conf"
+zabbix_web_config_path: "/etc/zabbix/www"
+
+zabbix_server_name: "zabbix"
+zabbix_server_host: "localhost"
+zabbix_db_host: "localhost"
+zabbix_db_port: 3306
+zabbix_db_name: "zabbix"
+zabbix_db_user: "zabbix"
+zabbix_db_pwd: "Zabbix37,"
+zabbix_db_root_pwd:
+
+zabbix_db_shecma:
+  - "/usr/share/doc/zabbix-server-mysql-2.4.8/create/schema.sql"
+  - "/usr/share/doc/zabbix-server-mysql-2.4.8/create/images.sql"
+  - "/usr/share/doc/zabbix-server-mysql-2.4.8/create/data.sql"
+
+
+zabbix_server_port: 10051
+zabbix_agent_port: 10050
+zabbix_web_host: localhost
+zabbix_web_port: 80
+zabbix_web_path: "/usr/share/zabbix"
+zabbix_php_addr: 127.0.0.1:9000
+zabbix_web_nginx_conf_path: "/etc/nginx/conf.d/zabbix_nginx.conf"
+
+zabbix_web_user: www
+zabbix_web_group: www
