@@ -1,24 +1,4 @@
 ---
-- name: create zabbix db
-  mysql_db:
-    login_host: "{{ zabbix_db_host}}"
-    login_user: root
-    login_password: "{{ zabbix_db_root_pwd }}"
-    name: "{{ zabbix_db_name }}"
-    encoding: utf8
-    state: present
-
-- name: create zabbix db user
-  mysql_user:
-    login_host: "{{ zabbix_db_host }}"
-    login_user: root
-    login_password: "{{ zabbix_db_root_pwd }}"
-    name: "{{ zabbix_db_user }}"
-    password: "{{ zabbix_db_pwd }}"
-    host: "{{ zabbix_server_host }}"
-    priv: "{{ zabbix_db_name }}.*:ALL"
-    state: present
-
 - name: import zabbix db shcema
   mysql_db:
     login_host: "{{ zabbix_db_host }}"
