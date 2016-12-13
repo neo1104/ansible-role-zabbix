@@ -1,13 +1,17 @@
 ---
 # tasks file for roles/zabbix
 
-- include: install_repo.yml
+- name: include install_repo.yml
+  include: install_repo.yml
 
-- include: zabbix_server.yml
+- name: include zabbix_server.yml when zabbix_install_type == 'server'
+  include: zabbix_server.yml
   when: zabbix_install_type == "server"
 
-- include: zabbix_agent.yml
+- name: include zabbix_server.yml when zabbix_install_type == 'agent'
+  include: zabbix_agent.yml
   when: zabbix_install_type == "agent"
 
-- include: zabbix_web.yml
+- name: include zabbix_server.yml when zabbix_install_type == 'web'
+  include: zabbix_web.yml
   when: zabbix_install_type == "web"
