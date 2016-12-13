@@ -2,7 +2,7 @@
 # defaults file for roles/zabbix
 zabbix_server_config_path: "/etc/zabbix/zabbix_server.conf"
 zabbix_agent_config_path: "/etc/zabbix/zabbix_agentd.conf"
-zabbix_web_config_path: "/etc/zabbix/www"
+zabbix_web_config_path: "/etc/zabbix/web"
 
 zabbix_server_name: "zabbix"
 zabbix_server_host: "localhost"
